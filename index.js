@@ -1,7 +1,6 @@
 //Constantes de la API
 const api_url_random = 'https://api.thecatapi.com/v1/images/search?limit=3';
 const api_url_favourites = 'https://api.thecatapi.com/v1/favourites';
-const api_key = 'api_key=fde8f1be-6fc5-48ed-9550-5f9da186afca';
 
 //Span para el error 
 const spanError = document.getElementById('Error');
@@ -11,7 +10,7 @@ const spanError = document.getElementById('Error');
 //Metodo de obtención de gatos random
 const getCats = async () => {
     try {
-        const response = await fetch(`${api_url_random}&${api_key}`);
+        const response = await fetch(`${api_url_random}`);
         const data = await response.json();
 
         const img1 = document.getElementById('img1');
@@ -36,7 +35,13 @@ const getCats = async () => {
 //Metodo de obtención de gatos favoritos
 const favsCats = async () => {
     try {
-        const response = await fetch(`${api_url_favourites}?${api_key}`);
+        const response = await fetch(api_url_favourites, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': 'fde8f1be-6fc5-48ed-9550-5f9da186afca',
+            }
+        },
+        );
         const data = await response.json();
         console.log('Fav cats');
         console.log(data);
@@ -79,10 +84,11 @@ const favsCats = async () => {
 //Metodo para guardar los gatos
 const saveFavsCat = async (id) => {
     try {
-        const response = await fetch(`${api_url_favourites}?${api_key}`,{
+        const response = await fetch(api_url_favourites,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'X-API-KEY': 'fde8f1be-6fc5-48ed-9550-5f9da186afca',
             },
             body: JSON.stringify({
                 image_id: id
@@ -104,10 +110,11 @@ const saveFavsCat = async (id) => {
 //Metodo para borrar los gatos
 const deleteFavoritesMichis = async (id) => {
     try {
-        const response = await fetch(`${api_url_favourites}/${id}?${api_key}`, {
+        const response = await fetch(`${api_url_favourites}/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
+                'X-API-KEY': 'fde8f1be-6fc5-48ed-9550-5f9da186afca',
             },
         });
         const data = await response.json();
