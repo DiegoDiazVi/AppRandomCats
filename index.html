@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+            rel="stylesheet"
+        />
+        <title>Random Cats API</title>
+    </head>
+    <body>
+        <h1 class="title">Cats app</h1>
+        <h2 class="subtitle">Random Cats</h2>
+        <span class="spanError" id="Error"></span>
+        <div class="container-button-reload">
+            <button id="button" class="button-reload">Reload</button>
+        </div>
+        <section class="container" id="randomMichis">
+            <article class="container-secondary">
+                <figure class="container-image">
+                    <img id="img1" alt="a photo to cat" />
+                </figure>
+                <div class="container-button">
+                    <button id="btnSave1" class="button-success">
+                        Save Fav Cat
+                    </button>
+                </div>
+            </article>
+            <article class="container-secondary">
+                <figure class="container-image">
+                    <img id="img2" alt="a photo to cat" />
+                </figure>
+                <div class="container-button">
+                    <button id="btnSave2" class="button-success">
+                        Save Fav Cat
+                    </button>
+                </div>
+            </article>
+            <article class="container-secondary">
+                <figure class="container-image">
+                    <img id="img3" alt="a photo to cat" />
+                </figure>
+                <div class="container-button">
+                    <button  id="btnSave3" class="button-success">
+                        Save Fav Cat
+                    </button>
+                </div>
+            </article>
+        </section>
+        <h2 class="subtitle">Favorites Cats</h2>
+        <section class="container-favs" id="favoritesMichis">
+        </section>
+        <script src="./index.js"></script>
+    </body>
+</html>
